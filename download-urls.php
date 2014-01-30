@@ -14,7 +14,14 @@ while ( ( $data = fgetcsv( $fp, 1000, "," ) ) !== false ) {
 	}
 
 	$number = str_pad( $data[0], 7, 0, STR_PAD_LEFT );
-	$site_file = dirname( __FILE__ ) . '/data/' . $number . '.html';
+	$dir = str_pad( ceil( $number / 10000 ), 3, 0, STR_PAD_LEFT );
+
+	$dir_path = dirname( __FILE__ ) . "/data/{$dir}";
+	if ( ! is_dir( $dir_path ) ) {
+		mkdir( $dir_path );
+	}
+
+	$site_file = dirname( __FILE__ ) . "/data/{$dir}/{$number}.html";
 
 	if ( ! file_exists( $site_file ) ) {
 		$spawned = true;
