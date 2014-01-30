@@ -6,7 +6,7 @@ require_once( DP_DIR . '/inc/class-data-analyser.php' );
 
 $fp = fopen( DP_DIR . "is_wordpress.csv", "w" );
 
-for ( $i = 0; $i < 10; $i++ ) {
+for ( $i = 0; $i < 100000; $i++ ) {
 
 	$filename = DP_DIR  . sprintf( '%07d', $i ) . '.html' ;
 
