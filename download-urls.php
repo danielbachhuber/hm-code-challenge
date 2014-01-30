@@ -17,7 +17,7 @@ while ( ( $data = fgetcsv( $fp, 1000, "," ) ) !== false ) {
 
 	if ( ! file_exists( $site_file ) ) {
 		echo "[{$number}] Downloading: {$data[1]}" . PHP_EOL;
-		shell_exec( "wget -O {$site_file} {$data[1]} > /dev/null 2>/dev/null &" );
+		shell_exec( "wget -O {$site_file} -t 10 {$data[1]} > /dev/null 2>/dev/null &" );
 	} else {
 		echo "[{$number}] File already exists: {$data[1]}" . PHP_EOL;
 	}
