@@ -1,6 +1,6 @@
 <?php
 
-$max_processes = 100;
+$max_processes = 150;
 
 $file = dirname( __FILE__ ) . '/top-1m.csv';
 $fp = fopen( $file, 'r' );
